@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Lazy Log</title>
+    <meta
+      name="description"
+      content="The Lazy Log: experiments, algorithms, and architectures."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Merienda:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script defer src="js/main.js"></script>
+  </head>
+  <body class="home-page">
+    <div class="paper-noise" aria-hidden="true"></div>
+
+    <header class="hero" id="top">
+      <div class="hero-sign reveal">
+        <img
+          class="hero-cat"
+          src="images/home/decor/cat-badge.svg"
+          alt="Sleeping cat badge"
+          width="180"
+          height="120"
+        />
+        <h1>The Lazy Log</h1>
+        <p>Quiet logs on experiments, architecture, and algorithms.</p>
+      </div>
+
+      <nav class="social-nav reveal" aria-label="Profile links">
+        <a
+          class="social-icon"
+          href="https://github.com/tkellehe/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          title="GitHub"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+            ></path>
+          </svg>
+          <span class="sr-only">GitHub</span>
+        </a>
+        <a
+          class="social-icon"
+          href="https://www.linkedin.com/in/mitchell-kelleher/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path
+              d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.358.54-1.358 1.248 0 .694.52 1.248 1.327 1.248h.015zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.56 5.56 0 0 1 .016-.025V6.169H6.252c.03.678 0 7.225 0 7.225h2.401z"
+            ></path>
+          </svg>
+          <span class="sr-only">LinkedIn</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="showcase reveal" aria-label="Spotlight">
+        <article class="chalkboard">
+          <h2>Current Work</h2>
+          <pre><code>s.sort(arr)
+| left, pivot = partition(arr)
+| return s(left) + [pivot] + s(right)
+
+goal: stabilize + benchmark</code></pre>
+        </article>
+        <article class="chalkboard flow">
+          <h2>Idea Pipeline</h2>
+          <div class="flow-grid">
+            <span>draft</span>
+            <span>experiment</span>
+            <span>measure</span>
+            <span>summarize</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="tracks" id="tracks">
+        <a class="track-card track-link reveal" href="architectures/" aria-label="Open architecture logs">
+          <h3>Architectures</h3>
+          <img
+            src="images/home/cards/architecture.png"
+            alt="Architecture diagram card"
+            width="520"
+            height="280"
+          />
+          <p>System design explorations and tradeoff notes.</p>
+          <span class="track-cta">Open logs</span>
+        </a>
+        <a class="track-card track-link reveal" href="algorithms/" aria-label="Open algorithm logs">
+          <h3>Algorithms</h3>
+          <img
+            src="images/home/cards/algorithm.png"
+            alt="Algorithm flow card"
+            width="520"
+            height="280"
+          />
+          <p>Complexity dives and practical optimization checks.</p>
+          <span class="track-cta">Open logs</span>
+        </a>
+        <a class="track-card track-link reveal" href="experiments/" aria-label="Open experiments logs">
+          <h3>Experiments</h3>
+          <img
+            src="images/home/cards/experiment.png"
+            alt="Experiments chart card"
+            width="520"
+            height="280"
+          />
+          <p>Measured outcomes from real runs and iterative testing.</p>
+          <span class="track-cta">Open logs</span>
+        </a>
+      </section>
+
+      <section class="latest reveal" id="latest">
+        <h2>Latest Logs</h2>
+        <div class="filter-row" role="group" aria-label="Filter latest logs">
+          <button class="chip is-active" type="button" data-topic="all">All</button>
+          <button class="chip" type="button" data-topic="architectures">Architectures</button>
+          <button class="chip" type="button" data-topic="algorithms">Algorithms</button>
+          <button class="chip" type="button" data-topic="experiments">Experiments</button>
+        </div>
+
+        <div class="post-grid">
+          <article class="post-card" data-topic="experiments">
+            <p class="post-meta">Experiments</p>
+            <h3>Context Curation: Preliminary REALM Tests</h3>
+            <p>First experiment write-up validating the baseline loop and context-size behavior.</p>
+            <a
+              href="experiments/2026/02/03/"
+              aria-label="Read REALM basic diagram first log"
+              >Read log</a
+            >
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><span id="year"></span> The Lazy Log. Built for calm technical writing.</p>
+    </footer>
+  </body>
+</html>

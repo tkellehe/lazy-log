@@ -1,0 +1,1338 @@
+{
+  "experiment": "multi-size-document",
+  "date": "2026-02-03",
+  "runs": [
+    {
+      "run_id": "multi-size-experiment-2026-02-03T04-33-52",
+      "source_markdown": "/Users/mitchell.kelleher/Documents/realm-js/experiments/results/multi-size-experiment-2026-02-03T04-33-52.md",
+      "model": "gpt-4o-mini",
+      "run_date": "2026-02-03T04:33:52.515Z",
+      "results": [
+        {
+          "documentSize": "Small",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 1684,
+          "tokensOutput": 43,
+          "tokensTotal": 1727,
+          "iterations": 5,
+          "sectionsRead": [
+            "api-overview",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "rate-limits"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 576,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 255,
+              "outputTokens": 9,
+              "totalTokens": 264,
+              "cumulativeTotal": 264
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 305,
+              "outputTokens": 7,
+              "totalTokens": 312,
+              "cumulativeTotal": 576
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 349,
+              "outputTokens": 9,
+              "totalTokens": 358,
+              "cumulativeTotal": 934
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 377,
+              "outputTokens": 9,
+              "totalTokens": 386,
+              "cumulativeTotal": 1320
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 398,
+              "outputTokens": 9,
+              "totalTokens": 407,
+              "cumulativeTotal": 1727
+            }
+          ],
+          "timeMs": 3966
+        },
+        {
+          "documentSize": "Small",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 443,
+          "tokensOutput": 2,
+          "tokensTotal": 445,
+          "selectedSectionId": "authentication",
+          "timeMs": 661
+        },
+        {
+          "documentSize": "Small",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 1649,
+          "tokensOutput": 43,
+          "tokensTotal": 1692,
+          "iterations": 5,
+          "sectionsRead": [
+            "api-overview",
+            "rate-limits",
+            "api-endpoints",
+            "error-handling",
+            "authentication"
+          ],
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 254,
+              "outputTokens": 9,
+              "totalTokens": 263,
+              "cumulativeTotal": 263
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 304,
+              "outputTokens": 9,
+              "totalTokens": 313,
+              "cumulativeTotal": 576
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 341,
+              "outputTokens": 9,
+              "totalTokens": 350,
+              "cumulativeTotal": 926
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 355,
+              "outputTokens": 9,
+              "totalTokens": 364,
+              "cumulativeTotal": 1290
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 395,
+              "outputTokens": 7,
+              "totalTokens": 402,
+              "cumulativeTotal": 1692
+            }
+          ],
+          "timeMs": 3779
+        },
+        {
+          "documentSize": "Small",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 442,
+          "tokensOutput": 4,
+          "tokensTotal": 446,
+          "selectedSectionId": "rate-limits",
+          "timeMs": 503
+        },
+        {
+          "documentSize": "Medium",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 5417,
+          "tokensOutput": 44,
+          "tokensTotal": 5461,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "security"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 1853,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 816,
+              "outputTokens": 12,
+              "totalTokens": 828,
+              "cumulativeTotal": 828
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 1018,
+              "outputTokens": 7,
+              "totalTokens": 1025,
+              "cumulativeTotal": 1853
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 1068,
+              "outputTokens": 9,
+              "totalTokens": 1077,
+              "cumulativeTotal": 2930
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 1179,
+              "outputTokens": 9,
+              "totalTokens": 1188,
+              "cumulativeTotal": 4118
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 1336,
+              "outputTokens": 7,
+              "totalTokens": 1343,
+              "cumulativeTotal": 5461
+            }
+          ],
+          "timeMs": 3583
+        },
+        {
+          "documentSize": "Medium",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 5288,
+          "tokensOutput": 2,
+          "tokensTotal": 5290,
+          "selectedSectionId": "authentication",
+          "timeMs": 1675
+        },
+        {
+          "documentSize": "Medium",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 5143,
+          "tokensOutput": 47,
+          "tokensTotal": 5190,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "rate-limiting",
+            "limits-by-plan",
+            "headers",
+            "burst-handling"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 1854,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 815,
+              "outputTokens": 12,
+              "totalTokens": 827,
+              "cumulativeTotal": 827
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 1017,
+              "outputTokens": 10,
+              "totalTokens": 1027,
+              "cumulativeTotal": 1854
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 1049,
+              "outputTokens": 9,
+              "totalTokens": 1058,
+              "cumulativeTotal": 2912
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 1107,
+              "outputTokens": 7,
+              "totalTokens": 1114,
+              "cumulativeTotal": 4026
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 1155,
+              "outputTokens": 9,
+              "totalTokens": 1164,
+              "cumulativeTotal": 5190
+            }
+          ],
+          "timeMs": 3823
+        },
+        {
+          "documentSize": "Medium",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 5287,
+          "tokensOutput": 4,
+          "tokensTotal": 5291,
+          "selectedSectionId": "limits-by-plan",
+          "timeMs": 1168
+        },
+        {
+          "documentSize": "XLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 7745,
+          "tokensOutput": 44,
+          "tokensTotal": 7789,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "security"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 2777,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 1272,
+              "outputTokens": 12,
+              "totalTokens": 1284,
+              "cumulativeTotal": 1284
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 1486,
+              "outputTokens": 7,
+              "totalTokens": 1493,
+              "cumulativeTotal": 2777
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 1536,
+              "outputTokens": 9,
+              "totalTokens": 1545,
+              "cumulativeTotal": 4322
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 1647,
+              "outputTokens": 9,
+              "totalTokens": 1656,
+              "cumulativeTotal": 5978
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 1804,
+              "outputTokens": 7,
+              "totalTokens": 1811,
+              "cumulativeTotal": 7789
+            }
+          ],
+          "timeMs": 3991
+        },
+        {
+          "documentSize": "XLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 8878,
+          "tokensOutput": 2,
+          "tokensTotal": 8880,
+          "selectedSectionId": "authentication",
+          "timeMs": 2866
+        },
+        {
+          "documentSize": "XLarge",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 7471,
+          "tokensOutput": 47,
+          "tokensTotal": 7518,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "rate-limiting",
+            "limits-by-plan",
+            "headers",
+            "burst-handling"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 2778,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 1271,
+              "outputTokens": 12,
+              "totalTokens": 1283,
+              "cumulativeTotal": 1283
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 1485,
+              "outputTokens": 10,
+              "totalTokens": 1495,
+              "cumulativeTotal": 2778
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 1517,
+              "outputTokens": 9,
+              "totalTokens": 1526,
+              "cumulativeTotal": 4304
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 1575,
+              "outputTokens": 7,
+              "totalTokens": 1582,
+              "cumulativeTotal": 5886
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 1623,
+              "outputTokens": 9,
+              "totalTokens": 1632,
+              "cumulativeTotal": 7518
+            }
+          ],
+          "timeMs": 3586
+        },
+        {
+          "documentSize": "XLarge",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 8877,
+          "tokensOutput": 4,
+          "tokensTotal": 8881,
+          "selectedSectionId": "limits-by-plan",
+          "timeMs": 1534
+        },
+        {
+          "documentSize": "XXLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 11364,
+          "tokensOutput": 48,
+          "tokensTotal": 11412,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "security-best-practices"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 4194,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 1955,
+              "outputTokens": 12,
+              "totalTokens": 1967,
+              "cumulativeTotal": 1967
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 2220,
+              "outputTokens": 7,
+              "totalTokens": 2227,
+              "cumulativeTotal": 4194
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 2270,
+              "outputTokens": 9,
+              "totalTokens": 2279,
+              "cumulativeTotal": 6473
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 2381,
+              "outputTokens": 9,
+              "totalTokens": 2390,
+              "cumulativeTotal": 8863
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 2538,
+              "outputTokens": 11,
+              "totalTokens": 2549,
+              "cumulativeTotal": 11412
+            }
+          ],
+          "timeMs": 4250
+        },
+        {
+          "documentSize": "XXLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 12052,
+          "tokensOutput": 2,
+          "tokensTotal": 12054,
+          "selectedSectionId": "authentication",
+          "timeMs": 2213
+        },
+        {
+          "documentSize": "XXLarge",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 11090,
+          "tokensOutput": 47,
+          "tokensTotal": 11137,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "rate-limiting",
+            "limits-by-plan",
+            "headers",
+            "burst-handling"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 4195,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 1954,
+              "outputTokens": 12,
+              "totalTokens": 1966,
+              "cumulativeTotal": 1966
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 2219,
+              "outputTokens": 10,
+              "totalTokens": 2229,
+              "cumulativeTotal": 4195
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 2251,
+              "outputTokens": 9,
+              "totalTokens": 2260,
+              "cumulativeTotal": 6455
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 2309,
+              "outputTokens": 7,
+              "totalTokens": 2316,
+              "cumulativeTotal": 8771
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 2357,
+              "outputTokens": 9,
+              "totalTokens": 2366,
+              "cumulativeTotal": 11137
+            }
+          ],
+          "timeMs": 4594
+        },
+        {
+          "documentSize": "XXLarge",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 12051,
+          "tokensOutput": 4,
+          "tokensTotal": 12055,
+          "selectedSectionId": "limits-by-plan",
+          "timeMs": 700
+        },
+        {
+          "documentSize": "XXXLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 14832,
+          "tokensOutput": 47,
+          "tokensTotal": 14879,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "rate-limiting"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 5541,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 2595,
+              "outputTokens": 12,
+              "totalTokens": 2607,
+              "cumulativeTotal": 2607
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 2927,
+              "outputTokens": 7,
+              "totalTokens": 2934,
+              "cumulativeTotal": 5541
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 2977,
+              "outputTokens": 9,
+              "totalTokens": 2986,
+              "cumulativeTotal": 8527
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 3088,
+              "outputTokens": 9,
+              "totalTokens": 3097,
+              "cumulativeTotal": 11624
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 3245,
+              "outputTokens": 10,
+              "totalTokens": 3255,
+              "cumulativeTotal": 14879
+            }
+          ],
+          "timeMs": 4143
+        },
+        {
+          "documentSize": "XXXLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 15081,
+          "tokensOutput": 2,
+          "tokensTotal": 15083,
+          "selectedSectionId": "authentication",
+          "timeMs": 9883
+        },
+        {
+          "documentSize": "XXXLarge",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 14558,
+          "tokensOutput": 47,
+          "tokensTotal": 14605,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "rate-limiting",
+            "limits-by-plan",
+            "headers",
+            "burst-handling"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 5542,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 2594,
+              "outputTokens": 12,
+              "totalTokens": 2606,
+              "cumulativeTotal": 2606
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 2926,
+              "outputTokens": 10,
+              "totalTokens": 2936,
+              "cumulativeTotal": 5542
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 2958,
+              "outputTokens": 9,
+              "totalTokens": 2967,
+              "cumulativeTotal": 8509
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 3016,
+              "outputTokens": 7,
+              "totalTokens": 3023,
+              "cumulativeTotal": 11532
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 3064,
+              "outputTokens": 9,
+              "totalTokens": 3073,
+              "cumulativeTotal": 14605
+            }
+          ],
+          "timeMs": 4021
+        },
+        {
+          "documentSize": "XXXLarge",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 15080,
+          "tokensOutput": 4,
+          "tokensTotal": 15084,
+          "selectedSectionId": "limits-by-plan",
+          "timeMs": 8372
+        }
+      ]
+    },
+    {
+      "run_id": "multi-size-experiment-2026-02-03T04-40-19",
+      "source_markdown": "/Users/mitchell.kelleher/Documents/realm-js/experiments/results/multi-size-experiment-2026-02-03T04-40-19.md",
+      "model": "gpt-5-nano",
+      "run_date": "2026-02-03T04:40:19.146Z",
+      "results": [
+        {
+          "documentSize": "Small",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 1674,
+          "tokensOutput": 2382,
+          "tokensTotal": 4056,
+          "iterations": 5,
+          "sectionsRead": [
+            "api-overview",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "error-handling"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 1697,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 253,
+              "outputTokens": 466,
+              "totalTokens": 719,
+              "cumulativeTotal": 719
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 303,
+              "outputTokens": 675,
+              "totalTokens": 978,
+              "cumulativeTotal": 1697
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 347,
+              "outputTokens": 325,
+              "totalTokens": 672,
+              "cumulativeTotal": 2369
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 375,
+              "outputTokens": 410,
+              "totalTokens": 785,
+              "cumulativeTotal": 3154
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 396,
+              "outputTokens": 506,
+              "totalTokens": 902,
+              "cumulativeTotal": 4056
+            }
+          ],
+          "timeMs": 22843
+        },
+        {
+          "documentSize": "Small",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 442,
+          "tokensOutput": 279,
+          "tokensTotal": 721,
+          "selectedSectionId": "authentication",
+          "timeMs": 2543
+        },
+        {
+          "documentSize": "Small",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 1673,
+          "tokensOutput": 7070,
+          "tokensTotal": 8743,
+          "iterations": 5,
+          "sectionsRead": [
+            "api-overview",
+            "rate-limits",
+            "authentication",
+            "api-endpoints",
+            "error-handling"
+          ],
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 252,
+              "outputTokens": 984,
+              "totalTokens": 1236,
+              "cumulativeTotal": 1236
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 302,
+              "outputTokens": 225,
+              "totalTokens": 527,
+              "cumulativeTotal": 1763
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 339,
+              "outputTokens": 2074,
+              "totalTokens": 2413,
+              "cumulativeTotal": 4176
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 383,
+              "outputTokens": 2074,
+              "totalTokens": 2457,
+              "cumulativeTotal": 6633
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 397,
+              "outputTokens": 1713,
+              "totalTokens": 2110,
+              "cumulativeTotal": 8743
+            }
+          ],
+          "timeMs": 56504
+        },
+        {
+          "documentSize": "Small",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 441,
+          "tokensOutput": 216,
+          "tokensTotal": 657,
+          "selectedSectionId": "rate-limits",
+          "timeMs": 62224
+        },
+        {
+          "documentSize": "Medium",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 5407,
+          "tokensOutput": 4110,
+          "tokensTotal": 9517,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "security"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 3035,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 814,
+              "outputTokens": 419,
+              "totalTokens": 1233,
+              "cumulativeTotal": 1233
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 1016,
+              "outputTokens": 786,
+              "totalTokens": 1802,
+              "cumulativeTotal": 3035
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 1066,
+              "outputTokens": 710,
+              "totalTokens": 1776,
+              "cumulativeTotal": 4811
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 1177,
+              "outputTokens": 845,
+              "totalTokens": 2022,
+              "cumulativeTotal": 6833
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 1334,
+              "outputTokens": 1350,
+              "totalTokens": 2684,
+              "cumulativeTotal": 9517
+            }
+          ],
+          "timeMs": 36680
+        },
+        {
+          "documentSize": "Medium",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 5287,
+          "tokensOutput": 370,
+          "tokensTotal": 5657,
+          "selectedSectionId": "api-keys",
+          "timeMs": 3134
+        },
+        {
+          "documentSize": "Medium",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 5133,
+          "tokensOutput": 3098,
+          "tokensTotal": 8231,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "rate-limiting",
+            "limits-by-plan",
+            "headers",
+            "burst-handling"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 2965,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 813,
+              "outputTokens": 587,
+              "totalTokens": 1400,
+              "cumulativeTotal": 1400
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 1015,
+              "outputTokens": 550,
+              "totalTokens": 1565,
+              "cumulativeTotal": 2965
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 1047,
+              "outputTokens": 591,
+              "totalTokens": 1638,
+              "cumulativeTotal": 4603
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 1105,
+              "outputTokens": 582,
+              "totalTokens": 1687,
+              "cumulativeTotal": 6290
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 1153,
+              "outputTokens": 788,
+              "totalTokens": 1941,
+              "cumulativeTotal": 8231
+            }
+          ],
+          "timeMs": 25490
+        },
+        {
+          "documentSize": "Medium",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 5286,
+          "tokensOutput": 244,
+          "tokensTotal": 5530,
+          "selectedSectionId": "limits-by-plan",
+          "timeMs": 2266
+        },
+        {
+          "documentSize": "XLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 7735,
+          "tokensOutput": 4600,
+          "tokensTotal": 12335,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "webhook-signatures"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 3685,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 1270,
+              "outputTokens": 488,
+              "totalTokens": 1758,
+              "cumulativeTotal": 1758
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 1484,
+              "outputTokens": 443,
+              "totalTokens": 1927,
+              "cumulativeTotal": 3685
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 1534,
+              "outputTokens": 1380,
+              "totalTokens": 2914,
+              "cumulativeTotal": 6599
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 1645,
+              "outputTokens": 715,
+              "totalTokens": 2360,
+              "cumulativeTotal": 8959
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 1802,
+              "outputTokens": 1574,
+              "totalTokens": 3376,
+              "cumulativeTotal": 12335
+            }
+          ],
+          "timeMs": 36633
+        },
+        {
+          "documentSize": "XLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 8877,
+          "tokensOutput": 240,
+          "tokensTotal": 9117,
+          "selectedSectionId": "authentication",
+          "timeMs": 2535
+        },
+        {
+          "documentSize": "XLarge",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 7461,
+          "tokensOutput": 4714,
+          "tokensTotal": 12175,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "rate-limiting",
+            "limits-by-plan",
+            "headers",
+            "burst-handling"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 4390,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 1269,
+              "outputTokens": 590,
+              "totalTokens": 1859,
+              "cumulativeTotal": 1859
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 1483,
+              "outputTokens": 1048,
+              "totalTokens": 2531,
+              "cumulativeTotal": 4390
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 1515,
+              "outputTokens": 474,
+              "totalTokens": 1989,
+              "cumulativeTotal": 6379
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 1573,
+              "outputTokens": 1376,
+              "totalTokens": 2949,
+              "cumulativeTotal": 9328
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 1621,
+              "outputTokens": 1226,
+              "totalTokens": 2847,
+              "cumulativeTotal": 12175
+            }
+          ],
+          "timeMs": 42727
+        },
+        {
+          "documentSize": "XLarge",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 8876,
+          "tokensOutput": 283,
+          "tokensTotal": 9159,
+          "selectedSectionId": "limits-by-plan",
+          "timeMs": 2720
+        },
+        {
+          "documentSize": "XXLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 11354,
+          "tokensOutput": 4582,
+          "tokensTotal": 15936,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "security-best-practices"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 4956,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 1953,
+              "outputTokens": 606,
+              "totalTokens": 2559,
+              "cumulativeTotal": 2559
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 2218,
+              "outputTokens": 179,
+              "totalTokens": 2397,
+              "cumulativeTotal": 4956
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 2268,
+              "outputTokens": 952,
+              "totalTokens": 3220,
+              "cumulativeTotal": 8176
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 2379,
+              "outputTokens": 575,
+              "totalTokens": 2954,
+              "cumulativeTotal": 11130
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 2536,
+              "outputTokens": 2270,
+              "totalTokens": 4806,
+              "cumulativeTotal": 15936
+            }
+          ],
+          "timeMs": 36811
+        },
+        {
+          "documentSize": "XXLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 12051,
+          "tokensOutput": 438,
+          "tokensTotal": 12489,
+          "selectedSectionId": "api-keys",
+          "timeMs": 3759
+        },
+        {
+          "documentSize": "XXLarge",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 11080,
+          "tokensOutput": 4210,
+          "tokensTotal": 15290,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "rate-limiting",
+            "limits-by-plan",
+            "headers",
+            "burst-handling"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 5039,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 1952,
+              "outputTokens": 624,
+              "totalTokens": 2576,
+              "cumulativeTotal": 2576
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 2217,
+              "outputTokens": 246,
+              "totalTokens": 2463,
+              "cumulativeTotal": 5039
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 2249,
+              "outputTokens": 2193,
+              "totalTokens": 4442,
+              "cumulativeTotal": 9481
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 2307,
+              "outputTokens": 666,
+              "totalTokens": 2973,
+              "cumulativeTotal": 12454
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 2355,
+              "outputTokens": 481,
+              "totalTokens": 2836,
+              "cumulativeTotal": 15290
+            }
+          ],
+          "timeMs": 40167
+        },
+        {
+          "documentSize": "XXLarge",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 12050,
+          "tokensOutput": 381,
+          "tokensTotal": 12431,
+          "selectedSectionId": "limits-by-plan",
+          "timeMs": 4166
+        },
+        {
+          "documentSize": "XXXLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "iterative",
+          "tokensInput": 14822,
+          "tokensOutput": 7016,
+          "tokensTotal": 21838,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "authentication",
+            "api-keys",
+            "oauth-20",
+            "security"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 6141,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 2593,
+              "outputTokens": 338,
+              "totalTokens": 2931,
+              "cumulativeTotal": 2931
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 2925,
+              "outputTokens": 285,
+              "totalTokens": 3210,
+              "cumulativeTotal": 6141
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 2975,
+              "outputTokens": 1063,
+              "totalTokens": 4038,
+              "cumulativeTotal": 10179
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 3086,
+              "outputTokens": 1707,
+              "totalTokens": 4793,
+              "cumulativeTotal": 14972
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 3243,
+              "outputTokens": 3623,
+              "totalTokens": 6866,
+              "cumulativeTotal": 21838
+            }
+          ],
+          "timeMs": 56733
+        },
+        {
+          "documentSize": "XXXLarge",
+          "query": "How do I authenticate API requests?",
+          "approach": "fulltext",
+          "tokensInput": 15080,
+          "tokensOutput": 268,
+          "tokensTotal": 15348,
+          "selectedSectionId": "api-keys",
+          "timeMs": 3358
+        },
+        {
+          "documentSize": "XXXLarge",
+          "query": "What are the rate limits?",
+          "approach": "iterative",
+          "tokensInput": 14548,
+          "tokensOutput": 4644,
+          "tokensTotal": 19192,
+          "iterations": 5,
+          "sectionsRead": [
+            "e-commerce-platform-api-documentation",
+            "rate-limiting",
+            "limits-by-plan",
+            "headers",
+            "burst-handling"
+          ],
+          "firstCorrectIteration": 2,
+          "tokensToCorrect": 7542,
+          "iterationTokens": [
+            {
+              "iteration": 1,
+              "inputTokens": 2592,
+              "outputTokens": 686,
+              "totalTokens": 3278,
+              "cumulativeTotal": 3278
+            },
+            {
+              "iteration": 2,
+              "inputTokens": 2924,
+              "outputTokens": 1340,
+              "totalTokens": 4264,
+              "cumulativeTotal": 7542
+            },
+            {
+              "iteration": 3,
+              "inputTokens": 2956,
+              "outputTokens": 704,
+              "totalTokens": 3660,
+              "cumulativeTotal": 11202
+            },
+            {
+              "iteration": 4,
+              "inputTokens": 3014,
+              "outputTokens": 1034,
+              "totalTokens": 4048,
+              "cumulativeTotal": 15250
+            },
+            {
+              "iteration": 5,
+              "inputTokens": 3062,
+              "outputTokens": 880,
+              "totalTokens": 3942,
+              "cumulativeTotal": 19192
+            }
+          ],
+          "timeMs": 40145
+        },
+        {
+          "documentSize": "XXXLarge",
+          "query": "What are the rate limits?",
+          "approach": "fulltext",
+          "tokensInput": 15079,
+          "tokensOutput": 359,
+          "tokensTotal": 15438,
+          "selectedSectionId": "limits-by-plan",
+          "timeMs": 3158
+        }
+      ]
+    }
+  ]
+}

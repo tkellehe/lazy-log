@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Context Curation: Preliminary REALM Tests | The Lazy Log</title>
+    <meta
+      name="description"
+      content="A first benchmark of REALM's read-loop: iterative table-of-contents navigation versus full-text prompting across document sizes, plus what it suggests about reliable context curation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Merienda:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../../css/styles.css" />
+    <link rel="stylesheet" href="../../../../css/post.css" />
+    <script defer src="./assets/post.js"></script>
+  </head>
+  <body class="post-page">
+    <div class="paper-noise" aria-hidden="true"></div>
+
+    <main class="post-wrap">
+      <a class="back-link" href="../../../../index.html">← Back to The Lazy Log</a>
+
+      <article class="post-shell">
+        <header class="post-hero">
+          <p class="eyebrow">First Log · REALM Experiments</p>
+          <h1>Context Curation: Preliminary REALM Tests</h1>
+          <p class="read-time" id="read-time">Estimated read: -- min</p>
+          <p class="lede">
+            This log validates one simple idea. An agent should be able to navigate a document
+            by reading a table of contents in small steps, instead of loading the full text into
+            every prompt. I tested a minimal READ loop across multiple document sizes and two queries.
+            In these runs, both cloud models reached the correct section within two iterations across
+            sizes. That is the core signal I wanted before expanding the design into the broader REALM
+            loop for production content curation.
+          </p>
+          <ul class="meta-list">
+            <li><strong>Run 1:</strong> gpt-4o-mini · February 3, 2026 · 04:33:52 UTC</li>
+            <li><strong>Run 2:</strong> gpt-5-nano · February 3, 2026 · 04:40:19 UTC</li>
+            <li><strong>Scope:</strong> READ loop only (navigate + accumulate context)</li>
+            <li><strong>Queries:</strong> Authentication and rate limiting</li>
+            <li><strong>Max iterations:</strong> 5</li>
+          </ul>
+        </header>
+
+        <figure class="diagram-card">
+          <img
+            src="./assets/realm-basic-diagram.png"
+            alt="REALM basic loop diagram showing document, context state, prompt, and next-section selection"
+            width="1536"
+            height="940"
+          />
+          <figcaption>The baseline diagram flow used in this first experiment.</figcaption>
+        </figure>
+
+        <section class="post-section">
+          <h2>REALM as Context Curation</h2>
+          <p>
+            I think of REALM as a context curation system. The model does not get everything up front.
+            Instead, it progressively pulls in only the pieces that matter for the current question.
+            The mechanism is deliberately boring. It is a table of contents, a small list of available
+            next sections, and a loop that appends what was read into the working context.
+          </p>
+          <p>
+            This matters because the usual options all have scaling problems. Full-text prompting scales
+            linearly with content size. Embeddings often discard the hierarchy that documentation already
+            gives you. Manual curation does not scale when the content and the number of queries grows.
+            REALM tries to keep the structure and still keep per-call context small.
+          </p>
+          <p>
+            For this first log, I am only validating navigation and context growth. The long-term plan is to
+            expand incrementally toward the full loop and its pitfalls (stop conditions, confidence, guardrails,
+            and eventually richer tool and document graphs).
+          </p>
+        </section>
+
+        <section class="post-section">
+          <h2>What I Tested</h2>
+          <p>
+            I compared two approaches across five document sizes (9 to 260 sections) and two queries, with a
+            max of 5 iterations.
+          </p>
+          <ul>
+            <li><strong>Iterative REALM:</strong> pick a section, read it, and repeat until the answer is found</li>
+            <li><strong>Full-text:</strong> attempt a one-shot selection from the entire document</li>
+          </ul>
+          <p class="source-note">
+            Results:
+            <a href="./data/multi-size-experiment-2026-02-03.json"
+              >multi-size-experiment-2026-02-03.json</a
+            >
+          </p>
+          <p class="source-note">
+            Data sources:
+          </p>
+          <ul class="source-links">
+            <li><a href="./data/small-api-docs.md">small-api-docs.md</a></li>
+            <li><a href="./data/large-api-docs.md">large-api-docs.md</a></li>
+            <li><a href="./data/xlarge-api-docs.md">xlarge-api-docs.md</a></li>
+            <li><a href="./data/xxlarge-api-docs.md">xxlarge-api-docs.md</a></li>
+            <li><a href="./data/xxxlarge-api-docs.md">xxxlarge-api-docs.md</a></li>
+          </ul>
+        </section>
+
+        <section class="post-section">
+          <h2>Basic Loop</h2>
+          <div class="chalk-panel code-panel">
+            <h3>REALM Baseline Pseudocode</h3>
+            <pre><code>
+available_sections = toc(document)
+selected_sections = []
+
+for iteration in 1..5:
+  prompt = build_prompt(query, available_sections, selected_sections)
+  next_section = llm_select(prompt)
+  selected_sections.append(next_section)
+  available_sections.remove(next_section)
+
+  if has_answer(selected_sections, query):
+    # early-stop candidate
+    record(iteration, selected_sections)
+  </code></pre>
+          </div>
+          <p class="panel-foot">
+            The entire point of this post is the selection step. Can the model reliably choose a useful next section from
+            a small menu, and keep doing that as the document grows?
+          </p>
+        </section>
+
+        <section class="post-section">
+          <h2>Result Snapshot</h2>
+          <div class="chalk-grid">
+            <div class="chalk-panel">
+              <h3>gpt-4o-mini Overhead vs Full-Text</h3>
+              <ul class="bar-list" aria-label="gpt-4o-mini overhead percentages">
+                <li>
+                  <span>Small</span>
+                  <div class="bar-track"><span class="bar pos" data-width="283.7"></span></div>
+                  <em>+283.7%</em>
+                </li>
+                <li>
+                  <span>Medium</span>
+                  <div class="bar-track"><span class="bar pos" data-width="0.7"></span></div>
+                  <em>+0.7%</em>
+                </li>
+                <li>
+                  <span>XLarge</span>
+                  <div class="bar-track"><span class="bar neg" data-width="13.8"></span></div>
+                  <em>-13.8%</em>
+                </li>
+                <li>
+                  <span>XXLarge</span>
+                  <div class="bar-track"><span class="bar neg" data-width="6.5"></span></div>
+                  <em>-6.5%</em>
+                </li>
+                <li>
+                  <span>XXXLarge</span>
+                  <div class="bar-track"><span class="bar neg" data-width="2.3"></span></div>
+                  <em>-2.3%</em>
+                </li>
+              </ul>
+              <p class="panel-foot">
+                Crossover appears around <strong>30KB</strong>. Above that, iterative moves from overhead to savings.
+                First-correct is stable at iteration 2 once the document is not tiny.
+              </p>
+            </div>
+
+            <div class="chalk-panel">
+              <h3>gpt-5-nano Overhead vs Full-Text</h3>
+              <ul class="bar-list" aria-label="gpt-5-nano overhead percentages">
+                <li>
+                  <span>Small</span>
+                  <div class="bar-track"><span class="bar pos" data-width="776.8"></span></div>
+                  <em>+776.8%</em>
+                </li>
+                <li>
+                  <span>Medium</span>
+                  <div class="bar-track"><span class="bar pos" data-width="56.5"></span></div>
+                  <em>+56.5%</em>
+                </li>
+                <li>
+                  <span>XLarge</span>
+                  <div class="bar-track"><span class="bar pos" data-width="40.3"></span></div>
+                  <em>+40.3%</em>
+                </li>
+                <li>
+                  <span>XXLarge</span>
+                  <div class="bar-track"><span class="bar pos" data-width="23.8"></span></div>
+                  <em>+23.8%</em>
+                </li>
+                <li>
+                  <span>XXXLarge</span>
+                  <div class="bar-track"><span class="bar pos" data-width="24.0"></span></div>
+                  <em>+24.0%</em>
+                </li>
+              </ul>
+              <p class="panel-foot">
+                The path quality was still stable (first-correct at iteration 2 on non-small docs),
+                but total tokens stayed high because output tokens stayed large even without an explicit reason field.
+                That makes early stopping the main lever for this model.
+              </p>
+            </div>
+          </div>
+
+          <div class="chalk-panel" style="margin-top: 1.25rem">
+            <h3>What This Suggests</h3>
+            <ul>
+              <li><strong>Navigation scales sub-linearly:</strong> the correct section is reached in 1 to 2 steps across sizes.</li>
+              <li><strong>Token crossover is real:</strong> for gpt-4o-mini, iterative becomes cheaper around 30KB docs.</li>
+              <li><strong>Output tokens matter:</strong> some models pay a large per-call output cost, so stopping early is not optional.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="post-section">
+          <h2>Full-Text Is a Fragile Interface</h2>
+          <p>
+            Full-text prompting looks simpler, but the failure mode is ugly. You ask the model to scan thousands of tokens,
+            pick one section, and return it in exactly the format you need. In practice, it can return the wrong thing,
+            the wrong format, or a plausible-looking answer that points at the wrong section. Worse, it has no second chance.
+          </p>
+
+          <div class="chalk-panel">
+            <h3>Reliability Comparison</h3>
+            <table class="chalk-table">
+              <thead>
+                <tr>
+                  <th>Aspect</th>
+                  <th>Full-Text</th>
+                  <th>Iterative (REALM)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Task complexity</td>
+                  <td>Scan entire document and pick one section</td>
+                  <td>Pick from a small menu each step</td>
+                </tr>
+                <tr>
+                  <td>Error recovery</td>
+                  <td>None</td>
+                  <td>Self-correcting across iterations</td>
+                </tr>
+                <tr>
+                  <td>Failure predictability</td>
+                  <td>Unpredictable across docs and queries</td>
+                  <td>More predictable, because each step is constrained</td>
+                </tr>
+                <tr>
+                  <td>Fix difficulty</td>
+                  <td>Hard, prompt work has diminishing returns</td>
+                  <td>Easier, mostly constraint clarity and validation</td>
+                </tr>
+                <tr>
+                  <td>Production posture</td>
+                  <td>Risky</td>
+                  <td>Reliable via graceful degradation</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="panel-foot">
+              My current view: iterative wins on operational reliability, even when it is not always the lowest-token option for very small docs.
+            </p>
+          </div>
+        </section>
+
+        <section class="post-section">
+          <h2>Early Stopping Is the Biggest Multiplier</h2>
+          <p>
+            The clearest takeaway is not the 5-iteration totals. It is how quickly the correct section is found. If you stop
+            as soon as you have the answer (or high confidence), token usage collapses.
+          </p>
+
+          <div class="chalk-grid">
+            <div class="chalk-panel">
+              <h3>gpt-4o-mini Early Stop Potential (Auth Query)</h3>
+              <table class="chalk-table">
+                <thead>
+                  <tr>
+                    <th>Doc</th>
+                    <th>Total (5 iters)</th>
+                    <th>To Correct (Iter 2)</th>
+                    <th>Savings</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Small</td>
+                    <td>1,727</td>
+                    <td>576</td>
+                    <td>66.6%</td>
+                  </tr>
+                  <tr>
+                    <td>Medium</td>
+                    <td>5,461</td>
+                    <td>1,853</td>
+                    <td>66.1%</td>
+                  </tr>
+                  <tr>
+                    <td>XLarge</td>
+                    <td>7,789</td>
+                    <td>2,777</td>
+                    <td>64.3%</td>
+                  </tr>
+                  <tr>
+                    <td>XXLarge</td>
+                    <td>11,412</td>
+                    <td>4,194</td>
+                    <td>63.2%</td>
+                  </tr>
+                  <tr>
+                    <td>XXXLarge</td>
+                    <td>14,879</td>
+                    <td>5,541</td>
+                    <td>62.8%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="chalk-panel">
+              <h3>gpt-5-nano Early Stop Potential (Auth Query)</h3>
+              <table class="chalk-table">
+                <thead>
+                  <tr>
+                    <th>Doc</th>
+                    <th>Total (5 iters)</th>
+                    <th>To Correct (Iter 2)</th>
+                    <th>Savings</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Small</td>
+                    <td>4,056</td>
+                    <td>1,697</td>
+                    <td>58.2%</td>
+                  </tr>
+                  <tr>
+                    <td>Medium</td>
+                    <td>9,517</td>
+                    <td>3,035</td>
+                    <td>68.1%</td>
+                  </tr>
+                  <tr>
+                    <td>XLarge</td>
+                    <td>12,335</td>
+                    <td>3,685</td>
+                    <td>70.1%</td>
+                  </tr>
+                  <tr>
+                    <td>XXLarge</td>
+                    <td>15,936</td>
+                    <td>4,956</td>
+                    <td>68.9%</td>
+                  </tr>
+                  <tr>
+                    <td>XXXLarge</td>
+                    <td>21,838</td>
+                    <td>6,141</td>
+                    <td>71.9%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="chalk-panel" style="margin-top: 1.25rem">
+            <h3>My Guess</h3>
+            <p>
+              Early stopping is not just an optimization. It is part of the architecture. If the correct section is usually
+              reached by iteration 2, then the system should treat iterations 3 to 5 as a fallback mode or continued exploration. The monitor should
+              stop aggressively when confidence is high, and only keep exploring when uncertainty remains.
+            </p>
+          </div>
+        </section>
+
+        <section class="post-section">
+          <h2>Per-Iteration Growth Stays Manageable</h2>
+          <p>
+            Context does grow each iteration, because previously read sections accumulate. But the growth was controlled in a
+            representative medium run, while output tokens stayed small when the model is not producing long reasoning outputs.
+          </p>
+
+          <div class="chalk-panel">
+            <h3>Per-Iteration Token Growth (Medium, Auth Query, gpt-4o-mini)</h3>
+            <table class="chalk-table">
+              <thead>
+                <tr>
+                  <th>Iter</th>
+                  <th>Input</th>
+                  <th>Output</th>
+                  <th>Total</th>
+                  <th>Cumulative</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>816</td>
+                  <td>12</td>
+                  <td>828</td>
+                  <td>828</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>1,018</td>
+                  <td>7</td>
+                  <td>1,025</td>
+                  <td>1,853</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>1,068</td>
+                  <td>9</td>
+                  <td>1,077</td>
+                  <td>2,930</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>1,179</td>
+                  <td>9</td>
+                  <td>1,188</td>
+                  <td>4,118</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>1,336</td>
+                  <td>7</td>
+                  <td>1,343</td>
+                  <td>5,461</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="panel-foot">
+              Input grows as sections accumulate, but the step stays within a narrow band. That makes this loop easier to reason about and easier to budget.
+            </p>
+          </div>
+        </section>
+
+        <section class="post-section">
+          <h2>Per-Call Context Windows Stay Small</h2>
+          <div class="chalk-panel">
+            <h3>Max Single-Iteration Input (gpt-4o-mini)</h3>
+            <table class="chalk-table">
+              <thead>
+                <tr>
+                  <th>Document Size</th>
+                  <th>Full-Text Input</th>
+                  <th>REALM Max Single Iteration</th>
+                  <th>Reduction</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Small (9 sections)</td>
+                  <td>443</td>
+                  <td>398</td>
+                  <td>10%</td>
+                </tr>
+                <tr>
+                  <td>Medium (78 sections)</td>
+                  <td>5,288</td>
+                  <td>1,336</td>
+                  <td>75%</td>
+                </tr>
+                <tr>
+                  <td>XLarge (124 sections)</td>
+                  <td>8,878</td>
+                  <td>1,804</td>
+                  <td>80%</td>
+                </tr>
+                <tr>
+                  <td>XXLarge (195 sections)</td>
+                  <td>12,052</td>
+                  <td>2,538</td>
+                  <td>79%</td>
+                </tr>
+                <tr>
+                  <td>XXXLarge (260 sections)</td>
+                  <td>15,081</td>
+                  <td>3,245</td>
+                  <td>78%</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="panel-foot">
+              This is the practical reason I care about this loop. It turns a large-document problem into a sequence of smaller, bounded calls.
+              That is the opening for future experiments with smaller context limits and local deployments, once the rest of the architecture is solid.
+            </p>
+          </div>
+        </section>
+
+        <section class="post-section">
+          <h2>Takeaways from This First Pass</h2>
+          <ul>
+            <li>The basic diagram is valid. Iterative section selection stays stable as content grows.</li>
+            <li>For gpt-4o-mini, iterative becomes token-cheaper around 30KB documents, and stays competitive beyond that.</li>
+            <li>Full-text is operationally fragile. It has no recovery path when it picks the wrong thing.</li>
+            <li>Early stopping is the next real improvement. It turns a 5-iteration budget into a 2-iteration budget most of the time.</li>
+            <li>Next step: add explicit stop conditions and confidence signals, then expand carefully toward the broader REALM architecture.</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
