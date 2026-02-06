@@ -71,11 +71,14 @@
       <section class="showcase reveal" aria-label="Spotlight">
         <article class="chalkboard">
           <h2>Current Work</h2>
-          <pre><code>s.sort(arr)
-| left, pivot = partition(arr)
-| return s(left) + [pivot] + s(right)
-
-goal: stabilize + benchmark</code></pre>
+          <pre><code>curate_context(query, sections, token_budget):
+| context = []
+| candidates = rank_by_relevance(query, sections)
+| while tokens(context) < token_budget and not enough_signal(context):
+|   next = choose(candidates, avoid=context.ids)
+|   context += summarize(next, max_tokens=220)
+|   candidates += related_sections(next)
+| return build_prompt(query, context)</code></pre>
         </article>
         <article class="chalkboard flow">
           <h2>Idea Pipeline</h2>

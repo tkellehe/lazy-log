@@ -259,13 +259,35 @@ main {
   font-size: 1.45rem;
 }
 
-.chalkboard code,
 .chalkboard pre {
   margin: 0.8rem 0 0;
   font-family: "JetBrains Mono", "Courier New", monospace;
   font-size: clamp(0.85rem, 2vw, 1.07rem);
   color: #f4c980;
-  white-space: pre-wrap;
+  white-space: pre;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(233, 186, 118, 0.7) rgba(35, 25, 21, 0.55);
+}
+
+.chalkboard code {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  color: #f4c980;
+}
+
+.chalkboard pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.chalkboard pre::-webkit-scrollbar-track {
+  background: rgba(35, 25, 21, 0.55);
+  border-radius: 999px;
+}
+
+.chalkboard pre::-webkit-scrollbar-thumb {
+  background: rgba(233, 186, 118, 0.72);
+  border-radius: 999px;
 }
 
 .flow-grid {
@@ -273,6 +295,16 @@ main {
   display: grid;
   gap: 0.65rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.chalkboard.flow {
+  container-type: size;
+}
+
+@container (min-height: 300px) {
+  .flow-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .flow-grid span {
@@ -512,11 +544,13 @@ footer {
   transform: translateY(-50%);
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1080px) {
   .showcase {
     grid-template-columns: 1fr;
   }
+}
 
+@media (max-width: 960px) {
   .tracks {
     grid-template-columns: 1fr 1fr;
   }
